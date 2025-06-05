@@ -35,7 +35,7 @@ const SocialLinks = () => {
             variant="outline"
             size="lg"
             className={`p-4 border-2 border-gray-200 hover:border-transparent hover:text-white transition-all duration-300 ${social.color}`}
-            onClick={() => window.open(social.url, '_blank')}
+            onClick={() => window.open(social.url, '_blank', 'noopener,noreferrer')}
           >
             <social.icon className="w-6 h-6" />
             <span className="sr-only">{social.name}</span>

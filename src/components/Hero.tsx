@@ -14,6 +14,7 @@ const Hero = () => {
       link.href = `/${fileName}`;
       link.download = downloadName;
       link.target = '_blank';
+      link.rel = 'noopener noreferrer';
       
       // Append to body, click, and remove
       document.body.appendChild(link);
@@ -21,9 +22,9 @@ const Hero = () => {
       document.body.removeChild(link);
     } catch (error) {
       console.error('Erro ao baixar o CV:', error);
-      // Fallback: open in new tab
+      // Fallback: open in new tab with security attributes
       const fileName = type === 'formal' ? 'cv-formal.pdf' : 'cv-moderno.pdf';
-      window.open(`/${fileName}`, '_blank');
+      window.open(`/${fileName}`, '_blank', 'noopener,noreferrer');
     }
   };
 

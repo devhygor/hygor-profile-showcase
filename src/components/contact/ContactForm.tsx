@@ -17,43 +17,90 @@ const ContactForm = () => {
   });
   const { toast } = useToast();
 
+  // Função para sanitizar entrada e evitar injeção de código
+  const sanitizeInput = (input: string): string => {
+    return input
+      .replace(/[<>]/g, '') // Remove < e >
+      .trim()
+      .substring(0, 500); // Limita o tamanho
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Sanitiza todos os campos
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      subject: sanitizeInput(formData.subject),
+      message: sanitizeInput(formData.message)
+    };
+
+    // Validação básica
+    if (!sanitizedData.name || !sanitizedData.email || !sanitizedData.message) {
+      toast({
+        title: "Erro de validação",
+        description: "Por favor, preencha todos os campos obrigatórios.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     // Create email content
-    const emailSubject = formData.subject || 'Contato através do portfólio';
+    const emailSubject = sanitizedData.subject || 'Contato através do portfólio';
     const emailBody = `Olá Hygor,
 
-Meu nome é ${formData.name} e entrei em contato através do seu portfólio.
+Meu nome é ${sanitizedData.name} e entrei em contato através do seu portfólio.
 
-${formData.message}
+${sanitizedData.message}
 
 Atenciosamente,
-${formData.name}
-Email: ${formData.email}`;
+${sanitizedData.name}
+Email: ${sanitizedData.email}`;
 
-    // Create mailto URL
+    // Create mailto URL with proper encoding
     const mailtoUrl = `mailto:hygor.k92@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
-    // Open email client
-    window.location.href = mailtoUrl;
-    
-    // Show success toast
-    toast({
-      title: "Redirecionando para seu cliente de email",
-      description: "Sua mensagem foi preparada e será aberta no seu aplicativo de email padrão.",
-    });
-    
-    // Reset form after a short delay
-    setTimeout(() => {
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
+    try {
+      // Open email client
+      window.location.href = mailtoUrl;
+      
+      // Show success toast
+      toast({
+        title: "Redirecionando para seu cliente de email",
+        description: "Sua mensagem foi preparada e será aberta no seu aplicativo de email padrão.",
+      });
+      
+      // Reset form after a short delay
+      setTimeout(() => {
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 1000);
+    } catch (error) {
+      toast({
+        title: "Erro ao abrir cliente de email",
+        description: "Tente copiar o email hygor.k92@gmail.com manualmente.",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    
+    // Limita o tamanho do input em tempo real
+    const maxLengths = {
+      name: 100,
+      email: 100,
+      subject: 150,
+      message: 1000
+    };
+    
+    const maxLength = maxLengths[name as keyof typeof maxLengths] || 500;
+    const truncatedValue = value.substring(0, maxLength);
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: truncatedValue
     });
   };
 
@@ -65,7 +112,7 @@ Email: ${formData.email}`;
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <Label htmlFor="name" className="text-gray-700 font-medium">Nome</Label>
+              <Label htmlFor="name" className="text-gray-700 font-medium">Nome *</Label>
               <Input
                 id="name"
                 name="name"
@@ -74,11 +121,12 @@ Email: ${formData.email}`;
                 className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="Seu nome completo"
                 required
+                maxLength={100}
               />
             </div>
             
             <div>
-              <Label htmlFor="email" className="text-gray-700 font-medium">Email</Label>
+              <Label htmlFor="email" className="text-gray-700 font-medium">Email *</Label>
               <Input
                 id="email"
                 name="email"
@@ -88,6 +136,7 @@ Email: ${formData.email}`;
                 className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                 placeholder="seu@email.com"
                 required
+                maxLength={100}
               />
             </div>
           </div>
@@ -101,12 +150,12 @@ Email: ${formData.email}`;
               onChange={handleChange}
               className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
               placeholder="Sobre o que você gostaria de conversar?"
-              required
+              maxLength={150}
             />
           </div>
           
           <div>
-            <Label htmlFor="message" className="text-gray-700 font-medium">Mensagem</Label>
+            <Label htmlFor="message" className="text-gray-700 font-medium">Mensagem *</Label>
             <Textarea
               id="message"
               name="message"
@@ -116,7 +165,11 @@ Email: ${formData.email}`;
               className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
               placeholder="Descreva sua ideia, projeto ou oportunidade..."
               required
+              maxLength={1000}
             />
+            <p className="text-xs text-gray-500 mt-1">
+              {formData.message.length}/1000 caracteres
+            </p>
           </div>
           
           <Button

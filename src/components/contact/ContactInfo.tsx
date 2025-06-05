@@ -9,19 +9,19 @@ const ContactInfo = () => {
       icon: Mail,
       title: 'Email',
       value: 'hygor.k92@gmail.com',
-      action: () => window.open('mailto:hygor.k92@gmail.com')
+      action: () => window.open('mailto:hygor.k92@gmail.com', '_self')
     },
     {
       icon: Phone,
       title: 'Telefone',
       value: '(61) 9 8159-2866',
-      action: () => window.open('tel:+5561981592866')
+      action: () => window.open('tel:+5561981592866', '_self')
     },
     {
       icon: MapPin,
       title: 'Localização',
       value: 'Novo Gama - GO',
-      action: () => window.open('https://maps.google.com/?q=Novo+Gama+GO')
+      action: () => window.open('https://maps.google.com/?q=Novo+Gama+GO', '_blank', 'noopener,noreferrer')
     }
   ];
 
