@@ -78,7 +78,7 @@ const Hero = () => {
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
                 <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl overflow-hidden">
                   <img
-                    src="/lovable-uploads/d802a7ad-c356-495c-bdba-87c67f870879.png"
+                    src="/lovable-uploads/b5a0c7e8-1234-5678-9abc-def012345678.png"
                     alt="Hygor Rocha"
                     className="w-full h-full object-cover rounded-full"
                   />
