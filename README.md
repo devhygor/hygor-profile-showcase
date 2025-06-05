@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
 
-## Project info
+# Portfólio Pessoal - Hygor Melo
 
-**URL**: https://lovable.dev/projects/ed496cb4-a55e-4880-a3a9-9fb0f7f807ac
+## Sobre o Projeto
 
-## How can I edit this code?
+Portfólio pessoal desenvolvido com tecnologias modernas para apresentar minhas habilidades, projetos e experiência como Desenvolvedor Full Stack.
 
-There are several ways of editing your application.
+**Website**: [devhygor.com](https://devhygor.com)
+**GitHub**: [github.com/devhygor](https://github.com/devhygor)
+**LinkedIn**: [linkedin.com/in/devhygor](https://www.linkedin.com/in/devhygor/)
 
-**Use Lovable**
+## Tecnologias Utilizadas
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ed496cb4-a55e-4880-a3a9-9fb0f7f807ac) and start prompting.
+Este projeto foi desenvolvido com:
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React** - Biblioteca para interfaces de usuário
+- **TypeScript** - Superset do JavaScript com tipagem estática
+- **Vite** - Build tool e dev server
+- **Tailwind CSS** - Framework CSS utilitário
+- **Shadcn/ui** - Componentes UI reutilizáveis
+- **Lucide React** - Biblioteca de ícones
 
-**Use your preferred IDE**
+## Funcionalidades
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- ✅ Design responsivo e moderno
+- ✅ Seções organizadas (Sobre, Experiência, Habilidades, Projetos, Contato)
+- ✅ Animações suaves e interativas
+- ✅ Performance otimizada
+- ✅ SEO-friendly
+- ✅ Acessibilidade
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Como executar localmente
 
-Follow these steps:
+```bash
+# Clone o repositório
+git clone https://github.com/devhygor/portfolio
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Navegue até o diretório
+cd portfolio
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Instale as dependências
+npm install
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Execute o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deploy
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+O projeto pode ser facilmente deployado em plataformas como:
+- Vercel
+- Netlify
+- GitHub Pages
+- Outros serviços de hosting estático
 
-**Use GitHub Codespaces**
+## Contato
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Email**: hygor.k92@gmail.com
+- **Telefone**: (61) 9 8159-2866
+- **GitHub**: [@devhygor](https://github.com/devhygor)
+- **LinkedIn**: [Hygor Melo](https://www.linkedin.com/in/devhygor/)
 
-## What technologies are used for this project?
+---
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ed496cb4-a55e-4880-a3a9-9fb0f7f807ac) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Desenvolvido com ❤️ por Hygor Melo

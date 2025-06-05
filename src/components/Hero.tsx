@@ -1,9 +1,27 @@
 
 import React from 'react';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown, Download, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const handleDownloadCV = (type: 'formal' | 'moderno') => {
+    if (type === 'formal') {
+      const link = document.createElement('a');
+      link.href = '/cv-formal.pdf';
+      link.download = 'Hygor-Rocha-CV-Formal.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      const link = document.createElement('a');
+      link.href = '/cv-moderno.pdf';
+      link.download = 'Hygor-Rocha-CV-Moderno.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -14,7 +32,7 @@ const Hero = () => {
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900">
                 Olá, eu sou{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Hygor Melo
+                  Hygor Rocha
                 </span>
               </h1>
               
@@ -29,18 +47,31 @@ const Hero = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Download CV
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    onClick={() => handleDownloadCV('moderno')}
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    CV Moderno
+                  </Button>
+                  
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-full transition-all duration-300"
+                    onClick={() => handleDownloadCV('formal')}
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    CV Formal
+                  </Button>
+                </div>
                 
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300"
+                  className="border-2 border-gray-400 text-gray-700 hover:bg-gray-700 hover:text-white px-8 py-3 rounded-full transition-all duration-300"
                   onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Entre em Contato
@@ -53,10 +84,12 @@ const Hero = () => {
           <div className="flex-1 flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
-                <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-4xl font-bold text-gray-600">
-                    HM
-                  </div>
+                <div className="w-full h-full rounded-full bg-white p-2 shadow-2xl overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/lovable-uploads/4930d9ad-105b-413c-a568-33a1ad408ea5.png"
+                    alt="Hygor Rocha"
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               

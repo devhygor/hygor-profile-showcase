@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Heart, Github, Linkedin, Mail } from 'lucide-react';
 
@@ -12,7 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-              Hygor Melo
+              Hygor Rocha
             </h3>
             <p className="text-gray-300 leading-relaxed">
               Desenvolvedor Full Stack apaixonado por criar soluções inovadoras e eficientes. 
@@ -83,7 +82,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-300 flex items-center justify-center">
-            © {currentYear} Hygor Melo. Feito com{' '}
+            © {currentYear} Hygor Rocha. Feito com{' '}
             <Heart className="w-4 h-4 mx-1 text-red-500" fill="currentColor" />
             e muito código.
           </p>
