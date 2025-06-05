@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const ContactForm = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   // Função para sanitizar entrada e evitar injeção de código
@@ -25,7 +27,7 @@ const ContactForm = () => {
       .substring(0, 500); // Limita o tamanho
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Sanitiza todos os campos
@@ -46,41 +48,39 @@ const ContactForm = () => {
       return;
     }
 
-    // Create email content
-    const emailSubject = sanitizedData.subject || 'Contato através do portfólio';
-    const emailBody = `Olá Hygor,
+    setIsSubmitting(true);
 
-Meu nome é ${sanitizedData.name} e entrei em contato através do seu portfólio.
-
-${sanitizedData.message}
-
-Atenciosamente,
-${sanitizedData.name}
-Email: ${sanitizedData.email}`;
-
-    // Create mailto URL with proper encoding
-    const mailtoUrl = `mailto:hygor.k92@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    
     try {
-      // Open email client
-      window.location.href = mailtoUrl;
+      console.log("Enviando email...", sanitizedData);
       
-      // Show success toast
-      toast({
-        title: "Redirecionando para seu cliente de email",
-        description: "Sua mensagem foi preparada e será aberta no seu aplicativo de email padrão.",
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: sanitizedData
       });
-      
-      // Reset form after a short delay
-      setTimeout(() => {
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      }, 1000);
-    } catch (error) {
+
+      if (error) {
+        console.error("Erro ao enviar email:", error);
+        throw error;
+      }
+
+      console.log("Email enviado com sucesso:", data);
+
       toast({
-        title: "Erro ao abrir cliente de email",
-        description: "Tente copiar o email hygor.k92@gmail.com manualmente.",
+        title: "Mensagem enviada com sucesso!",
+        description: "Sua mensagem foi enviada. Retornarei o contato em breve!",
+      });
+
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+    } catch (error: any) {
+      console.error("Erro completo:", error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Ocorreu um erro ao enviar sua mensagem. Tente novamente ou entre em contato diretamente pelo email hygor.k92@gmail.com",
         variant: "destructive"
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -122,6 +122,7 @@ Email: ${sanitizedData.email}`;
                 placeholder="Seu nome completo"
                 required
                 maxLength={100}
+                disabled={isSubmitting}
               />
             </div>
             
@@ -137,6 +138,7 @@ Email: ${sanitizedData.email}`;
                 placeholder="seu@email.com"
                 required
                 maxLength={100}
+                disabled={isSubmitting}
               />
             </div>
           </div>
@@ -151,6 +153,7 @@ Email: ${sanitizedData.email}`;
               className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
               placeholder="Sobre o que você gostaria de conversar?"
               maxLength={150}
+              disabled={isSubmitting}
             />
           </div>
           
@@ -166,6 +169,7 @@ Email: ${sanitizedData.email}`;
               placeholder="Descreva sua ideia, projeto ou oportunidade..."
               required
               maxLength={1000}
+              disabled={isSubmitting}
             />
             <p className="text-xs text-gray-500 mt-1">
               {formData.message.length}/1000 caracteres
@@ -175,10 +179,11 @@ Email: ${sanitizedData.email}`;
           <Button
             type="submit"
             size="lg"
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg"
+            disabled={isSubmitting}
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             <Send className="w-5 h-5 mr-2" />
-            Enviar Mensagem
+            {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
           </Button>
         </form>
       </CardContent>
