@@ -83,10 +83,10 @@ const About = () => {
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold text-white mb-4">Perfil Profissional</h3>
             <p className="text-blue-100 text-lg leading-relaxed max-w-4xl mx-auto">
-              Procuro oportunidade relacionada à área de desenvolvimento de sistemas, que possa trazer novas 
-              perspectivas de futuro. Estou à procura da minha primeira experiência de trabalho após formado em 
-              Análise e Desenvolvimento de Sistemas. Quero desenvolver minhas habilidades e contribuir para o 
-              sucesso da empresa.
+              Desenvolvedor Full Stack com sólida experiência em desenvolvimento de aplicações web utilizando 
+              tecnologias modernas como React, Node.js e TypeScript. Formado em Análise e Desenvolvimento de 
+              Sistemas, tenho paixão por criar soluções inovadoras e eficientes. Busco constantemente novas 
+              oportunidades para desenvolver minhas habilidades e contribuir para o sucesso de projetos desafiadores.
             </p>
           </CardContent>
         </Card>
