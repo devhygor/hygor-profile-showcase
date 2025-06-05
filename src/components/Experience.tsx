@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -22,6 +21,20 @@ const Experience = () => {
   ];
 
   const workExperience = [
+    {
+      title: 'Desenvolvedor Full Stack',
+      company: 'Pasquali',
+      location: 'Brasília - DF',
+      period: '2024 - Presente',
+      description: 'Desenvolvimento de aplicações web full stack utilizando tecnologias modernas como React, Node.js e bases de dados relacionais. Foco em soluções escaláveis e performance otimizada.'
+    },
+    {
+      title: 'Desenvolvedor Front-end',
+      company: 'Resale',
+      location: 'Brasília - DF',
+      period: '2023 - 2024',
+      description: 'Desenvolvimento de interfaces de usuário responsivas e interativas utilizando React, TypeScript e frameworks CSS modernos. Colaboração em equipe ágil para entrega de projetos de alta qualidade.'
+    },
     {
       title: 'Auxiliar de escritório em geral',
       company: 'Centro de integração Empresa Escola',
