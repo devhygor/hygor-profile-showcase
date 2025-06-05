@@ -43,6 +43,41 @@ const Experience = () => {
       name: 'Python: aplicando a Orientação a Objetos',
       provider: 'Alura',
       certificateUrl: 'https://cursos.alura.com.br/certificate/17fc4bc3-43f6-4e4e-8f1b-2acc7ad36314'
+    },
+    {
+      name: 'Python: criando a sua primeira aplicação',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/python-primeira-aplicacao'
+    },
+    {
+      name: 'Python: começando com a linguagem',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/python-introducao'
+    },
+    {
+      name: 'Git e GitHub: repositório, commit e versões',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/git-github-repositorio-commit-versoes'
+    },
+    {
+      name: 'HTML e CSS: ambientes de desenvolvimento, estrutura de arquivos e tags',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/html-css-ambiente-arquivos-tags'
+    },
+    {
+      name: 'HTML e CSS: Classes, posicionamento e Flexbox',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/html-css-classes-posicionamento-flexbox'
+    },
+    {
+      name: 'React: desenvolvendo com JavaScript',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/react-desenvolvendo-javascript'
+    },
+    {
+      name: 'JavaScript: programando na linguagem da web',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/hygor-rocha/javascript-programando-na-linguagem-web'
     }
   ];
 
