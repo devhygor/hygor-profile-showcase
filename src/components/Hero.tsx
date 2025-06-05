@@ -5,12 +5,20 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const handleDownloadCV = (type: 'formal' | 'moderno') => {
-    // Para implementar o download real, você precisará adicionar os arquivos PDF na pasta public
-    // Por enquanto, vou simular com alert
     if (type === 'formal') {
-      alert('Download do CV Formal iniciado! (Adicione o arquivo PDF na pasta public/cv-formal.pdf)');
+      const link = document.createElement('a');
+      link.href = '/cv-formal.pdf';
+      link.download = 'Hygor-Rocha-CV-Formal.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     } else {
-      alert('Download do CV Moderno iniciado! (Adicione o arquivo PDF na pasta public/cv-moderno.pdf)');
+      const link = document.createElement('a');
+      link.href = '/cv-moderno.pdf';
+      link.download = 'Hygor-Rocha-CV-Moderno.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   };
 
@@ -78,7 +86,7 @@ const Hero = () => {
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
                 <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl overflow-hidden">
                   <img
-                    src="/lovable-uploads/b5a0c7e8-1234-5678-9abc-def012345678.png"
+                    src="https://media.licdn.com/dms/image/v2/D4D03AQEfXoaBD7mXVQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730398265671?e=1738800000&v=beta&t=0A3hMT5pvhjuZrwJwRnq6P9ZWtO6vH0lV2WYgCiEsns"
                     alt="Hygor Rocha"
                     className="w-full h-full object-cover rounded-full"
                   />
