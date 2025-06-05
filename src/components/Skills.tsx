@@ -11,9 +11,10 @@ const Skills = () => {
       skills: [
         { name: 'HTML5', level: 90 },
         { name: 'CSS3', level: 85 },
-        { name: 'JavaScript', level: 80 },
-        { name: 'PHP', level: 75 },
-        { name: 'Python', level: 70 }
+        { name: 'JavaScript', level: 85 },
+        { name: 'TypeScript', level: 80 },
+        { name: 'PHP', level: 70 },
+        { name: 'Python', level: 65 }
       ]
     },
     {
@@ -22,6 +23,7 @@ const Skills = () => {
       skills: [
         { name: 'React', level: 85 },
         { name: 'Bootstrap', level: 90 },
+        { name: 'Tailwind CSS', level: 85 },
         { name: 'jQuery', level: 80 },
         { name: 'Node.js', level: 75 },
         { name: 'Express', level: 70 }
@@ -35,6 +37,7 @@ const Skills = () => {
         { name: 'API REST', level: 80 },
         { name: 'Git/GitHub', level: 85 },
         { name: 'WordPress', level: 75 },
+        { name: 'Vite', level: 80 },
         { name: 'SEO', level: 70 }
       ]
     },
@@ -43,10 +46,11 @@ const Skills = () => {
       title: 'Ferramentas & Software',
       skills: [
         { name: 'VS Code', level: 95 },
-        { name: 'Photoshop', level: 75 },
         { name: 'Figma', level: 80 },
         { name: 'MySQL', level: 85 },
-        { name: 'MongoDB', level: 70 }
+        { name: 'MongoDB', level: 70 },
+        { name: 'Photoshop', level: 75 },
+        { name: 'Postman', level: 80 }
       ]
     }
   ];
