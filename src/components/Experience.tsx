@@ -1,8 +1,12 @@
-import React from 'react';
-import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 const Experience = () => {
+  const [showAllExperiences, setShowAllExperiences] = useState(false);
+
   const education = [
     {
       title: 'Análise e Desenvolvimento de Sistemas',
@@ -98,6 +102,8 @@ const Experience = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  const displayedExperiences = showAllExperiences ? workExperience : workExperience.slice(0, 2);
+
   return (
     <section id="experiencia" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto max-w-6xl">
@@ -156,7 +162,7 @@ const Experience = () => {
             </h3>
             
             <div className="space-y-6">
-              {workExperience.map((work, index) => (
+              {displayedExperiences.map((work, index) => (
                 <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.02]">
                   <CardContent className="p-6">
                     <h4 className="text-xl font-bold text-gray-900 mb-2">{work.title}</h4>
@@ -177,6 +183,28 @@ const Experience = () => {
                   </CardContent>
                 </Card>
               ))}
+
+              {workExperience.length > 2 && (
+                <div className="flex justify-center mt-6">
+                  <Button
+                    variant="outline"
+                    onClick={() => setShowAllExperiences(!showAllExperiences)}
+                    className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300"
+                  >
+                    {showAllExperiences ? (
+                      <>
+                        <ChevronUp className="w-4 h-4 mr-2" />
+                        Ver menos
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="w-4 h-4 mr-2" />
+                        Ver mais experiências
+                      </>
+                    )}
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </div>
