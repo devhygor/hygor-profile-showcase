@@ -5,20 +5,25 @@ import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   const handleDownloadCV = (type: 'formal' | 'moderno') => {
-    if (type === 'formal') {
+    try {
+      const fileName = type === 'formal' ? 'cv-formal.pdf' : 'cv-moderno.pdf';
+      const downloadName = type === 'formal' ? 'Hygor-Rocha-CV-Formal.pdf' : 'Hygor-Rocha-CV-Moderno.pdf';
+      
+      // Create a link element and trigger download
       const link = document.createElement('a');
-      link.href = '/cv-formal.pdf';
-      link.download = 'Hygor-Rocha-CV-Formal.pdf';
+      link.href = `/${fileName}`;
+      link.download = downloadName;
+      link.target = '_blank';
+      
+      // Append to body, click, and remove
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    } else {
-      const link = document.createElement('a');
-      link.href = '/cv-moderno.pdf';
-      link.download = 'Hygor-Rocha-CV-Moderno.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Erro ao baixar o CV:', error);
+      // Fallback: open in new tab
+      const fileName = type === 'formal' ? 'cv-formal.pdf' : 'cv-moderno.pdf';
+      window.open(`/${fileName}`, '_blank');
     }
   };
 

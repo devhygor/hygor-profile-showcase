@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -42,31 +43,6 @@ const Experience = () => {
       name: 'Python: aplicando a Orientação a Objetos',
       provider: 'Alura',
       certificateUrl: 'https://cursos.alura.com.br/certificate/17fc4bc3-43f6-4e4e-8f1b-2acc7ad36314'
-    },
-    {
-      name: 'JavaScript - Curso COMPLETO com 6 Projetos REAIS',
-      provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
-    },
-    {
-      name: 'React - The Complete Guide 2024',
-      provider: 'Udemy', 
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
-    },
-    {
-      name: 'Node.js - The Complete Guide',
-      provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
-    },
-    {
-      name: 'Git e GitHub do básico ao avançado',
-      provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
-    },
-    {
-      name: 'TypeScript do básico ao avançado',
-      provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
     }
   ];
 
@@ -158,29 +134,31 @@ const Experience = () => {
         </div>
 
         {/* Courses */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Cursos e Certificações
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {courses.map((course, index) => (
-              <Card 
-                key={index} 
-                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105 cursor-pointer"
-                onClick={() => handleCertificateClick(course.certificateUrl)}
-              >
-                <CardContent className="p-4 text-center">
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="font-medium text-gray-900 text-left flex-1">{course.name}</p>
-                    <ExternalLink className="w-4 h-4 text-blue-600 flex-shrink-0 ml-2" />
-                  </div>
-                  <p className="text-sm text-gray-600 text-left">{course.provider}</p>
-                </CardContent>
-              </Card>
-            ))}
+        {courses.length > 0 && (
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Cursos e Certificações
+            </h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {courses.map((course, index) => (
+                <Card 
+                  key={index} 
+                  className="bg-gradient-to-br from-blue-50 to-indigo-50 border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105 cursor-pointer"
+                  onClick={() => handleCertificateClick(course.certificateUrl)}
+                >
+                  <CardContent className="p-4 text-center">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="font-medium text-gray-900 text-left flex-1">{course.name}</p>
+                      <ExternalLink className="w-4 h-4 text-blue-600 flex-shrink-0 ml-2" />
+                    </div>
+                    <p className="text-sm text-gray-600 text-left">{course.provider}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
