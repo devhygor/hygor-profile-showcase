@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, MessageCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -20,14 +19,34 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
+    // Create email content
+    const emailSubject = formData.subject || 'Contato através do portfólio';
+    const emailBody = `Olá Hygor,
+
+Meu nome é ${formData.name} e entrei em contato através do seu portfólio.
+
+${formData.message}
+
+Atenciosamente,
+${formData.name}
+Email: ${formData.email}`;
+
+    // Create mailto URL
+    const mailtoUrl = `mailto:hygor.k92@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open email client
+    window.location.href = mailtoUrl;
+    
+    // Show success toast
     toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Retornarei em breve!",
+      title: "Redirecionando para seu cliente de email",
+      description: "Sua mensagem foi preparada e será aberta no seu aplicativo de email padrão.",
     });
     
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    // Reset form after a short delay
+    setTimeout(() => {
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
