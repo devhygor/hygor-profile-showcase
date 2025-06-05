@@ -84,7 +84,7 @@ const Hero = () => {
           <div className="flex-1 flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
-                <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl overflow-hidden">
+                <div className="w-full h-full rounded-full bg-white p-2 shadow-2xl overflow-hidden flex items-center justify-center">
                   <img
                     src="https://media.licdn.com/dms/image/v2/D4D03AQEfXoaBD7mXVQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730398265671?e=1738800000&v=beta&t=0A3hMT5pvhjuZrwJwRnq6P9ZWtO6vH0lV2WYgCiEsns"
                     alt="Hygor Rocha"

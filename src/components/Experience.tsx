@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Briefcase, GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Experience = () => {
@@ -39,13 +39,41 @@ const Experience = () => {
   ];
 
   const courses = [
-    'Desenvolvimento Web Completo - Udemy',
-    'Algoritmos e Lógica de Programação - Udemy',
-    'Word Avançado - Microlins',
-    'Excel Avançado - Microlins',
-    'Power Point Avançado - Microlins',
-    'Hardware e Software - Microlins'
+    {
+      name: 'JavaScript - Curso COMPLETO com 6 Projetos REAIS',
+      provider: 'Udemy',
+      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+    },
+    {
+      name: 'React - The Complete Guide 2024',
+      provider: 'Udemy',
+      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+    },
+    {
+      name: 'Node.js - The Complete Guide',
+      provider: 'Udemy',
+      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+    },
+    {
+      name: 'Python 3 - Curso Completo do Básico ao Avançado',
+      provider: 'Udemy',
+      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+    },
+    {
+      name: 'Git e GitHub do básico ao avançado',
+      provider: 'Udemy',
+      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+    },
+    {
+      name: 'TypeScript do básico ao avançado',
+      provider: 'Udemy',
+      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+    }
   ];
+
+  const handleCertificateClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section id="experiencia" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
@@ -138,9 +166,17 @@ const Experience = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {courses.map((course, index) => (
-              <Card key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
+              <Card 
+                key={index} 
+                className="bg-gradient-to-br from-blue-50 to-indigo-50 border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105 cursor-pointer"
+                onClick={() => handleCertificateClick(course.certificateUrl)}
+              >
                 <CardContent className="p-4 text-center">
-                  <p className="font-medium text-gray-900">{course}</p>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="font-medium text-gray-900 text-left flex-1">{course.name}</p>
+                    <ExternalLink className="w-4 h-4 text-blue-600 flex-shrink-0 ml-2" />
+                  </div>
+                  <p className="text-sm text-gray-600 text-left">{course.provider}</p>
                 </CardContent>
               </Card>
             ))}
