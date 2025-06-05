@@ -1,9 +1,19 @@
 
 import React from 'react';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown, Download, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
+  const handleDownloadCV = (type: 'formal' | 'moderno') => {
+    // Para implementar o download real, você precisará adicionar os arquivos PDF na pasta public
+    // Por enquanto, vou simular com alert
+    if (type === 'formal') {
+      alert('Download do CV Formal iniciado! (Adicione o arquivo PDF na pasta public/cv-formal.pdf)');
+    } else {
+      alert('Download do CV Moderno iniciado! (Adicione o arquivo PDF na pasta public/cv-moderno.pdf)');
+    }
+  };
+
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -29,18 +39,31 @@ const Hero = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Download CV
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    onClick={() => handleDownloadCV('moderno')}
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    CV Moderno
+                  </Button>
+                  
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-full transition-all duration-300"
+                    onClick={() => handleDownloadCV('formal')}
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    CV Formal
+                  </Button>
+                </div>
                 
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full transition-all duration-300"
+                  className="border-2 border-gray-400 text-gray-700 hover:bg-gray-700 hover:text-white px-8 py-3 rounded-full transition-all duration-300"
                   onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Entre em Contato
@@ -53,10 +76,12 @@ const Hero = () => {
           <div className="flex-1 flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
-                <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-4xl font-bold text-gray-600">
-                    HR
-                  </div>
+                <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl overflow-hidden">
+                  <img
+                    src="/lovable-uploads/d802a7ad-c356-495c-bdba-87c67f870879.png"
+                    alt="Hygor Rocha"
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
               </div>
               
