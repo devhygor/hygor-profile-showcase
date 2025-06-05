@@ -14,7 +14,7 @@ const Hero = () => {
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900">
                 Olá, eu sou{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Hygor Melo
+                  Hygor Rocha
                 </span>
               </h1>
               
@@ -55,7 +55,7 @@ const Hero = () => {
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
                 <div className="w-full h-full rounded-full bg-white p-4 shadow-2xl">
                   <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-4xl font-bold text-gray-600">
-                    HM
+                    HR
                   </div>
                 </div>
               </div>

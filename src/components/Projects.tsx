@@ -6,44 +6,34 @@ import { Button } from '@/components/ui/button';
 const Projects = () => {
   const projects = [
     {
-      title: 'Portfólio Pessoal',
-      description: 'Site pessoal desenvolvido com React e Tailwind CSS, apresentando projetos e habilidades de forma moderna e responsiva.',
+      title: 'Meu Currículo',
+      description: 'Currículo digital desenvolvido com HTML, CSS e JavaScript puro, apresentando minhas informações pessoais e profissionais de forma moderna.',
+      image: '/placeholder.svg',
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      github: 'https://github.com/devhygor/meu-curriculo',
+      live: 'https://devhygor.github.io/meu-curriculo/',
+      stars: 1,
+      featured: true
+    },
+    {
+      title: 'Portfólio/Currículo Moderno',
+      description: 'Nova versão do meu portfólio desenvolvida com React, TypeScript e Tailwind CSS, com design responsivo e interativo.',
       image: '/placeholder.svg',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
       github: 'https://github.com/devhygor/portfolio',
       live: 'https://devhygor.com',
-      stars: 12,
+      stars: 0,
       featured: true
     },
     {
-      title: 'Sistema de Gerenciamento',
-      description: 'Aplicação web para gerenciamento de tarefas e projetos com interface intuitiva e funcionalidades avançadas.',
+      title: 'Projetos de Estudo',
+      description: 'Diversos projetos desenvolvidos durante meus estudos, incluindo exercícios de algoritmos e pequenas aplicações web.',
       image: '/placeholder.svg',
-      technologies: ['JavaScript', 'Node.js', 'MySQL', 'Bootstrap'],
-      github: 'https://github.com/devhygor/task-manager',
-      live: 'https://task-manager-demo.com',
-      stars: 8,
+      technologies: ['JavaScript', 'HTML5', 'CSS3', 'Git'],
+      github: 'https://github.com/devhygor',
+      live: '#',
+      stars: 0,
       featured: false
-    },
-    {
-      title: 'Landing Page Corporativa',
-      description: 'Site institucional responsivo com design moderno, otimizado para conversão e performance.',
-      image: '/placeholder.svg',
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP'],
-      github: 'https://github.com/devhygor/corporate-site',
-      live: 'https://corporate-demo.com',
-      stars: 5,
-      featured: false
-    },
-    {
-      title: 'E-commerce Platform',
-      description: 'Plataforma de e-commerce completa com carrinho de compras, sistema de pagamento e painel administrativo.',
-      image: '/placeholder.svg',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: 'https://github.com/devhygor/ecommerce',
-      live: 'https://ecommerce-demo.com',
-      stars: 15,
-      featured: true
     }
   ];
 
@@ -109,14 +99,16 @@ const Projects = () => {
                       Código
                     </Button>
                     
-                    <Button
-                      size="sm"
-                      className="flex items-center bg-blue-600 hover:bg-blue-700 text-white"
-                      onClick={() => window.open(project.live, '_blank')}
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Ver Projeto
-                    </Button>
+                    {project.live !== '#' && (
+                      <Button
+                        size="sm"
+                        className="flex items-center bg-blue-600 hover:bg-blue-700 text-white"
+                        onClick={() => window.open(project.live, '_blank')}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Ver Projeto
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -125,64 +117,68 @@ const Projects = () => {
         </div>
 
         {/* Other Projects */}
-        <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Outros Projetos</h3>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {otherProjects.map((project, index) => (
-              <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.02]">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-lg font-bold text-gray-900">{project.title}</h4>
-                    <div className="flex items-center text-yellow-500">
-                      <Star className="w-4 h-4 mr-1" />
-                      <span className="text-sm">{project.stars}</span>
+        {otherProjects.length > 0 && (
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">Outros Projetos</h3>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {otherProjects.map((project, index) => (
+                <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.02]">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="text-lg font-bold text-gray-900">{project.title}</h4>
+                      <div className="flex items-center text-yellow-500">
+                        <Star className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{project.stars}</span>
+                      </div>
                     </div>
-                  </div>
-                  
-                  <p className="text-gray-600 text-sm mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
-                  
-                  <div className="flex space-x-2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 text-xs"
-                      onClick={() => window.open(project.github, '_blank')}
-                    >
-                      <Github className="w-3 h-3 mr-1" />
-                      Código
-                    </Button>
                     
-                    <Button
-                      size="sm"
-                      className="flex-1 text-xs bg-blue-600 hover:bg-blue-700"
-                      onClick={() => window.open(project.live, '_blank')}
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      Demo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">
+                          +{project.technologies.length - 3}
+                        </span>
+                      )}
+                    </div>
+                    
+                    <div className="flex space-x-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 text-xs"
+                        onClick={() => window.open(project.github, '_blank')}
+                      >
+                        <Github className="w-3 h-3 mr-1" />
+                        Código
+                      </Button>
+                      
+                      {project.live !== '#' && (
+                        <Button
+                          size="sm"
+                          className="flex-1 text-xs bg-blue-600 hover:bg-blue-700"
+                          onClick={() => window.open(project.live, '_blank')}
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          Demo
+                        </Button>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* GitHub Profile Link */}
         <div className="mt-12 text-center">

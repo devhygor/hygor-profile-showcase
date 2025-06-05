@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code, Database, Globe, Wrench, Languages } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -9,48 +8,48 @@ const Skills = () => {
       icon: Code,
       title: 'Linguagens de Programação',
       skills: [
-        { name: 'HTML5', level: 90 },
-        { name: 'CSS3', level: 85 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'TypeScript', level: 80 },
-        { name: 'PHP', level: 70 },
-        { name: 'Python', level: 65 }
+        { name: 'HTML5', level: 85 },
+        { name: 'CSS3', level: 80 },
+        { name: 'JavaScript', level: 75 },
+        { name: 'TypeScript', level: 65 },
+        { name: 'PHP', level: 60 },
+        { name: 'Python', level: 50 }
       ]
     },
     {
       icon: Database,
       title: 'Frameworks & Bibliotecas',
       skills: [
-        { name: 'React', level: 85 },
-        { name: 'Bootstrap', level: 90 },
-        { name: 'Tailwind CSS', level: 85 },
-        { name: 'jQuery', level: 80 },
-        { name: 'Node.js', level: 75 },
-        { name: 'Express', level: 70 }
+        { name: 'React', level: 70 },
+        { name: 'Bootstrap', level: 85 },
+        { name: 'Tailwind CSS', level: 75 },
+        { name: 'jQuery', level: 70 },
+        { name: 'Node.js', level: 60 },
+        { name: 'Express', level: 55 }
       ]
     },
     {
       icon: Globe,
       title: 'Tecnologias Web',
       skills: [
-        { name: 'Responsive Design', level: 90 },
-        { name: 'API REST', level: 80 },
-        { name: 'Git/GitHub', level: 85 },
-        { name: 'WordPress', level: 75 },
-        { name: 'Vite', level: 80 },
-        { name: 'SEO', level: 70 }
+        { name: 'Responsive Design', level: 85 },
+        { name: 'API REST', level: 65 },
+        { name: 'Git/GitHub', level: 75 },
+        { name: 'WordPress', level: 70 },
+        { name: 'Vite', level: 65 },
+        { name: 'SEO', level: 60 }
       ]
     },
     {
       icon: Wrench,
       title: 'Ferramentas & Software',
       skills: [
-        { name: 'VS Code', level: 95 },
-        { name: 'Figma', level: 80 },
-        { name: 'MySQL', level: 85 },
-        { name: 'MongoDB', level: 70 },
-        { name: 'Photoshop', level: 75 },
-        { name: 'Postman', level: 80 }
+        { name: 'VS Code', level: 90 },
+        { name: 'Figma', level: 65 },
+        { name: 'MySQL', level: 70 },
+        { name: 'MongoDB', level: 55 },
+        { name: 'Photoshop', level: 60 },
+        { name: 'Postman', level: 70 }
       ]
     }
   ];
