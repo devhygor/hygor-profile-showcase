@@ -84,7 +84,8 @@ const About = () => {
             <h3 className="text-2xl font-bold text-white mb-4">Perfil Profissional</h3>
             <p className="text-blue-100 text-lg leading-relaxed max-w-4xl mx-auto">
               Desenvolvedor Full Stack com sólida experiência em desenvolvimento de aplicações web utilizando 
-              tecnologias modernas como React, Node.js e TypeScript. Formado em Análise e Desenvolvimento de 
+              tecnologias modernas como React, Node.js e TypeScript. Python é minha linguagem favorita, onde 
+              desenvolvo scripts de automação e aplicações backend robustas. Formado em Análise e Desenvolvimento de 
               Sistemas, tenho paixão por criar soluções inovadoras e eficientes. Busco constantemente novas 
               oportunidades para desenvolver minhas habilidades e contribuir para o sucesso de projetos desafiadores.
             </p>

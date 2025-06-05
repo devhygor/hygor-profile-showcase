@@ -102,6 +102,7 @@ const Experience = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  // Mostrar apenas 2 experiências inicialmente
   const displayedExperiences = showAllExperiences ? workExperience : workExperience.slice(0, 2);
 
   return (
