@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -46,27 +47,27 @@ const Experience = () => {
     {
       name: 'JavaScript - Curso COMPLETO com 6 Projetos REAIS',
       provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-d1234567-8901-2345-6789-012345678901/'
     },
     {
       name: 'React - The Complete Guide 2024',
       provider: 'Udemy', 
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-a1234567-8901-2345-6789-012345678902/'
     },
     {
       name: 'Node.js - The Complete Guide',
       provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-b1234567-8901-2345-6789-012345678903/'
     },
     {
       name: 'Git e GitHub do básico ao avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-c1234567-8901-2345-6789-012345678904/'
     },
     {
       name: 'TypeScript do básico ao avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-e1234567-8901-2345-6789-012345678905/'
     }
   ];
 

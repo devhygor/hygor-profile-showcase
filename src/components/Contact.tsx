@@ -15,19 +15,48 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Simulate form submission
-    toast({
-      title: "Mensagem enviada!",
-      description: "Obrigado pelo contato. Retornarei em breve!",
-    });
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Erro",
+        description: "Por favor, preencha todos os campos.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
     
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    try {
+      // Criar o corpo do email
+      const emailBody = `Nome: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0AAssunto: ${formData.subject}%0D%0A%0D%0AMensagem:%0D%0A${formData.message}`;
+      
+      // Abrir o cliente de email padrão
+      const mailtoLink = `mailto:hygor.k92@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${emailBody}`;
+      window.open(mailtoLink, '_blank');
+      
+      toast({
+        title: "Cliente de email aberto!",
+        description: "Seu cliente de email foi aberto com a mensagem preenchida. Complete o envio no seu aplicativo de email.",
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Erro ao abrir cliente de email:', error);
+      toast({
+        title: "Erro",
+        description: "Ocorreu um erro. Tente enviar diretamente para hygor.k92@gmail.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -153,6 +182,7 @@ const Contact = () => {
                       className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       placeholder="Seu nome completo"
                       required
+                      disabled={isLoading}
                     />
                   </div>
                   
@@ -167,6 +197,7 @@ const Contact = () => {
                       className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       placeholder="seu@email.com"
                       required
+                      disabled={isLoading}
                     />
                   </div>
                 </div>
@@ -181,6 +212,7 @@ const Contact = () => {
                     className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                     placeholder="Sobre o que você gostaria de conversar?"
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 
@@ -195,16 +227,18 @@ const Contact = () => {
                     className="mt-2 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                     placeholder="Descreva sua ideia, projeto ou oportunidade..."
                     required
+                    disabled={isLoading}
                   />
                 </div>
                 
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Enviar Mensagem
+                  {isLoading ? 'Abrindo...' : 'Enviar Mensagem'}
                 </Button>
               </form>
             </CardContent>
