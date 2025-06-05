@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, GraduationCap, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -40,34 +39,34 @@ const Experience = () => {
 
   const courses = [
     {
+      name: 'Python: aplicando a Orientação a Objetos',
+      provider: 'Alura',
+      certificateUrl: 'https://cursos.alura.com.br/certificate/17fc4bc3-43f6-4e4e-8f1b-2acc7ad36314'
+    },
+    {
       name: 'JavaScript - Curso COMPLETO com 6 Projetos REAIS',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/learning/certificates/javascript-curso-completo'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
     },
     {
       name: 'React - The Complete Guide 2024',
       provider: 'Udemy', 
-      certificateUrl: 'https://www.linkedin.com/learning/certificates/react-complete-guide'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
     },
     {
       name: 'Node.js - The Complete Guide',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/learning/certificates/nodejs-complete-guide'
-    },
-    {
-      name: 'Python 3 - Curso Completo do Básico ao Avançado',
-      provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/learning/certificates/python-curso-completo'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
     },
     {
       name: 'Git e GitHub do básico ao avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/learning/certificates/git-github-avancado'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
     },
     {
       name: 'TypeScript do básico ao avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/learning/certificates/typescript-avancado'
+      certificateUrl: 'https://www.udemy.com/certificate/UC-XXXXXXXX/'
     }
   ];
 
