@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Code, Database, Globe, Wrench, Languages } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,8 +13,8 @@ const Skills = () => {
         { name: 'CSS3', level: 80 },
         { name: 'JavaScript', level: 75 },
         { name: 'TypeScript', level: 65 },
-        { name: 'PHP', level: 60 },
-        { name: 'Python', level: 50 }
+        { name: 'PHP', level: 85 },
+        { name: 'Python', level: 90 }
       ]
     },
     {

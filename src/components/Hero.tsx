@@ -86,7 +86,7 @@ const Hero = () => {
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 p-2 animate-scale-in">
                 <div className="w-full h-full rounded-full bg-white p-2 shadow-2xl overflow-hidden flex items-center justify-center">
                   <img
-                    src="https://media.licdn.com/dms/image/v2/D4D03AQEfXoaBD7mXVQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730398265671?e=1738800000&v=beta&t=0A3hMT5pvhjuZrwJwRnq6P9ZWtO6vH0lV2WYgCiEsns"
+                    src="/lovable-uploads/4930d9ad-105b-413c-a568-33a1ad408ea5.png"
                     alt="Hygor Rocha"
                     className="w-full h-full object-cover rounded-full"
                   />
