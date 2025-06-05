@@ -42,32 +42,32 @@ const Experience = () => {
     {
       name: 'JavaScript - Curso COMPLETO com 6 Projetos REAIS',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+      certificateUrl: 'https://www.linkedin.com/learning/certificates/javascript-curso-completo'
     },
     {
       name: 'React - The Complete Guide 2024',
-      provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+      provider: 'Udemy', 
+      certificateUrl: 'https://www.linkedin.com/learning/certificates/react-complete-guide'
     },
     {
       name: 'Node.js - The Complete Guide',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+      certificateUrl: 'https://www.linkedin.com/learning/certificates/nodejs-complete-guide'
     },
     {
       name: 'Python 3 - Curso Completo do Básico ao Avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+      certificateUrl: 'https://www.linkedin.com/learning/certificates/python-curso-completo'
     },
     {
       name: 'Git e GitHub do básico ao avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+      certificateUrl: 'https://www.linkedin.com/learning/certificates/git-github-avancado'
     },
     {
       name: 'TypeScript do básico ao avançado',
       provider: 'Udemy',
-      certificateUrl: 'https://www.linkedin.com/in/devhygor/details/certifications/'
+      certificateUrl: 'https://www.linkedin.com/learning/certificates/typescript-avancado'
     }
   ];
 
