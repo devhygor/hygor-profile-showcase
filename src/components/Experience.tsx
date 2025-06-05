@@ -1,0 +1,154 @@
+
+import React from 'react';
+import { Briefcase, GraduationCap, Calendar, MapPin } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+
+const Experience = () => {
+  const education = [
+    {
+      title: 'Análise e Desenvolvimento de Sistemas',
+      institution: 'UNOPAR',
+      location: 'Novo Gama - GO',
+      period: '2019 - 2022',
+      type: 'Ensino Superior'
+    },
+    {
+      title: 'Ensino Médio',
+      institution: 'Carlos Drummond De Andrade',
+      location: 'Novo Gama - GO',
+      period: '2011 - 2013',
+      type: 'Educação Básica'
+    }
+  ];
+
+  const workExperience = [
+    {
+      title: 'Auxiliar de escritório em geral',
+      company: 'Centro de integração Empresa Escola',
+      location: 'Brasília - DF',
+      period: '2018 - 2019',
+      description: 'Responsável por atividades administrativas e suporte geral ao escritório.'
+    },
+    {
+      title: 'Militar',
+      company: 'Comando da Aeronáutica',
+      location: 'Brasília - DF', 
+      period: '2017 - 2018',
+      description: 'Serviço militar obrigatório com foco em disciplina e trabalho em equipe.'
+    }
+  ];
+
+  const courses = [
+    'Desenvolvimento Web Completo - Udemy',
+    'Algoritmos e Lógica de Programação - Udemy',
+    'Word Avançado - Microlins',
+    'Excel Avançado - Microlins',
+    'Power Point Avançado - Microlins',
+    'Hardware e Software - Microlins'
+  ];
+
+  return (
+    <section id="experiencia" className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Experiência & <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Formação</span>
+          </h2>
+          <p className="text-xl text-gray-600">
+            Minha jornada acadêmica e profissional
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Education */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+              <GraduationCap className="w-8 h-8 mr-3 text-blue-600" />
+              Formação Acadêmica
+            </h3>
+            
+            <div className="space-y-6">
+              {education.map((edu, index) => (
+                <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.02]">
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900">{edu.title}</h4>
+                        <p className="text-blue-600 font-medium">{edu.institution}</p>
+                      </div>
+                      <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                        {edu.type}
+                      </span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-4 text-gray-600">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{edu.period}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{edu.location}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Work Experience */}
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+              <Briefcase className="w-8 h-8 mr-3 text-blue-600" />
+              Experiência Profissional
+            </h3>
+            
+            <div className="space-y-6">
+              {workExperience.map((work, index) => (
+                <Card key={index} className="bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-[1.02]">
+                  <CardContent className="p-6">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{work.title}</h4>
+                    <p className="text-blue-600 font-medium mb-2">{work.company}</p>
+                    
+                    <div className="flex items-center space-x-4 text-gray-600 mb-3">
+                      <div className="flex items-center">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{work.period}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        <span className="text-sm">{work.location}</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-600 leading-relaxed">{work.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Courses */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Cursos e Certificações
+          </h3>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {courses.map((course, index) => (
+              <Card key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
+                <CardContent className="p-4 text-center">
+                  <p className="font-medium text-gray-900">{course}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
